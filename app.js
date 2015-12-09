@@ -12,16 +12,11 @@
 
   function updateStylesheet() {
     const {colors: {background, text}} = options
-    const rules = [
-      `#${ELEMENT_ID} select { background-color: ${background} }`,
-      `#${ELEMENT_ID} select { color: ${text} }`
-    ]
-
-    for (let i = 0; i < style.sheet.rules.length; i++) {
-      style.sheet.deleteRule(i)
-    }
-
-    rules.forEach((rule, index) => style.sheet.insertRule(rule, index))
+    style.innerHTML = `
+      #${ELEMENT_ID} select {
+        background-color: ${background};
+        color: ${text};
+      }`
   }
 
   function unmountNode(node) {
